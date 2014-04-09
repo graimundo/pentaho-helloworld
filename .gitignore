@@ -1,0 +1,4 @@
+bin/
+build-res/
+node_modules/
+js-lib/
