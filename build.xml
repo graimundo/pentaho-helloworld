@@ -3,10 +3,8 @@
 		This build file is used to create the PentahoHelloWorld project and works with the subfloor.xml file. 
 	</description> 
 
-	<import file="build-res/subfloor.xml"/>
-	<import file="build-res/subfloor-pkg.xml"/>
+	<!-- other subfloors are imported by this one -->
 	<import file="build-res/subfloor-js.xml"/>
-
 	
 	<!-- START: override subfloor.clean-all -->
 	<target name="clean-all" depends="subfloor.clean-all">
@@ -158,5 +156,22 @@
     </if>
   </target>
   <!-- END: override subfloor-js.resolve-js (same as yesterday's subfloor-js) -->
+  
+  
+  <!-- START: override subfloor-pkg.assembke -->
+  <target name="assemble" depends="assemble.init,assemble.copy-libs">
+    <copy todir="${approot.stage.dir}" overwrite="true">
+	  
+	  <!-- copy from script build output dir instead -->
+      <fileset dir="${js.build.output.dir}">
+	  
+		<!-- exclude any remaining js source files -->
+        <exclude name="**/${js.build.output.source.subdir}/**"/>
+	  </fileset>
+	  
+    </copy>
+    <chmod perm="a+x" dir="${stage.dir}" includes="**/*.sh" />
+  </target>
+  <!-- END: override subfloor-pkg.assembke -->
 
 </project>

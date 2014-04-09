@@ -1,3 +1,3 @@
-require( ["modules/purchase"], function( purchase ) {
+require( ["js/purchase"], function( purchase ) {
   purchase.purchaseProduct();
 });
