@@ -1,0 +1,123 @@
+<project name="PentahoHelloWorld" basedir="." default="jar" xmlns:ivy="antlib:org.apache.ivy.ant" > 
+	<description> 
+		This build file is used to create the PentahoHelloWorld project and works with the subfloor.xml file. 
+	</description> 
+
+	<import file="build-res/subfloor.xml"/>
+	<import file="build-res/subfloor-pkg.xml"/>
+	<import file="build-res/subfloor-js.xml"/>
+
+	<!-- combine clean-all for java and JS -->
+	<target name="clean-all" depends="subfloor.clean-all, subfloor-js.clean-js">
+		
+		<!-- devlib.dir is not being deleted -->
+		<delete dir="${devlib.dir}"/>
+
+		<!-- pentaho-js-build is not being deleted -->
+		<delete dir="build-res/pentaho-js-build"/>
+		<delete file="build-res/pentaho-js-build.zip"/>
+
+		<!-- requireCfg.js and requireCfg-raw.js are not being deleted -->
+		<delete file="build-res/requireCfg.js"/>
+		<delete file="build-res/requireCfg-raw.js"/>
+    </target>
+
+    <!-- override subfloor-js.npm-install -->
+	  <target name="npm-install" depends="npm-install-windows, npm-install-unix">
+		<echo message="I'm npm install!" />
+	  </target>
+	  
+	  <!-- Only run if there is a package.json file -->
+	  <target name="npm-install-windows" depends="check-pentaho-js-build-downloaded" if="isWindows">
+		<echo message="I'm a WINDOWS!" />
+		<if>
+		  <available file="package.json"/>
+		  <then>
+		  <exec executable="cmd">
+			<arg value="/c"/>
+			<arg value="npm"/>
+			<arg value="install"/>
+		  </exec>
+		  </then>
+		  <else>
+			<echo>No package.json found, using the default</echo>
+			<exec executable="cmd">
+				<arg value="/c"/>
+				<arg value="npm"/>
+				<arg value="install"/>
+				<arg value="build-res/pentaho-js-build"/>
+			</exec>
+		  </else>
+		</if>
+	  </target>
+	  
+	  <!-- Only run if there is a package.json file -->
+	  <target name="npm-install-unix" depends="check-pentaho-js-build-downloaded" unless="isWindows">
+	  	<echo message="I'm a UNIX!" />
+		<if>
+		  <available file="package.json"/>
+		  <then>
+		  <exec executable="npm">
+			<arg value="install"/>
+		  </exec>
+		  </then>
+		  <else>
+			<echo>No package.json found, using the default</echo>
+			<exec executable="npm">
+			  <arg value="install"/>
+			  <arg value="build-res/pentaho-js-build"/>
+			</exec>
+		  </else>
+		</if>
+	  </target>
+
+	  <!-- override subfloor-js.test-js -->
+	  <target name="test-js" depends="test-js-windows, test-js-unix">
+		<echo message="I'm Test-JS!" />
+	  </target>
+	  
+	  <target name="test-js-windows" depends="install-antcontrib, npm-install" if="isWindows">
+		<echo message="I'm a WINDOWS!" />
+		
+		<if>
+		  <available file="${js.karma.ci.config}"/>
+		  <then>
+			<!-- we have karma available, use it to run the tests -->
+			<exec executable="cmd">
+			  <arg value="/c"/>
+			  <arg value="node"/>
+			  <arg value="${js.karma.dir.bin}"/>
+			  <arg value="start"/>
+			  <arg value="${js.karma.ci.config}"/>
+			  <!-- if we are running via ant, then assume we must 'single-run' -->
+			  <arg value="--single-run"/>
+			</exec>
+		  </then>
+		  <else>
+			<fail>There is no karma configuration file available (looking for: ${js.karma.ci.config})</fail>
+		  </else>
+		</if>
+	  </target>
+	  
+	  <target name="test-js-unix" depends="install-antcontrib, npm-install" unless="isWindows">
+	  	<echo message="I'm a UNIX!" />
+		
+		<if>
+		  <available file="${js.karma.ci.config}"/>
+		  <then>
+			<!-- we have karma available, use it to run the tests -->
+			<exec executable="node">
+			  <arg value="${js.karma.dir.bin}"/>
+			  <arg value="start"/>
+			  <arg value="${js.karma.ci.config}"/>
+			  <!-- if we are running via ant, then assume we must 'single-run' -->
+			  <arg value="--single-run"/>
+			</exec>
+		  </then>
+		  <else>
+			<fail>There is no karma configuration file available (looking for: ${js.karma.ci.config})</fail>
+		  </else>
+		</if>
+	  </target>
+	
+</project>
