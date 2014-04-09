@@ -1,15 +1,11 @@
 ({
-    appDir: "./module-scripts/",
-    baseUrl: ".",
+    appDir: "./module-scripts/pentaho-helloworld",
+    baseUrl: "web",
     dir: "../bin/scriptOutput",
-    optimizeCss: "false",
-    mainConfigFile: 'requireCfg.js',
-    skipDirOptimize: true,
+    
     modules: [
         {
-            name: "output/main",
-            include: ["web/helloworld"],
-            create: true
+            name: "helloworld",
         }
     ]
 })

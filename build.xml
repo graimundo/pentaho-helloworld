@@ -142,7 +142,15 @@
         <echo>No js libraries need expanding. ${js.lib.dir} does not exist.</echo>
       </else>
     </if>
-
+  </target>
+  
+  <!-- override subfloor-js.package-js-output -->
+  <target name="package-js-output">
+    <copy todir="${js.script.package.dest}" overwrite="true">
+      <fileset dir="${js.build.output.dir}">
+        <include name="**/*"/>
+      </fileset>
+    </copy>
   </target>
 
 </project>
