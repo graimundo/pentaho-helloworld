@@ -7,11 +7,18 @@
 	<import file="build-res/subfloor-pkg.xml"/>
 	<import file="build-res/subfloor-js.xml"/>
 
-	<!-- combine clean-all for java and JS -->
-	<target name="clean-all" depends="subfloor.clean-all, subfloor-js.clean-js">
+	
+	<!-- START: override subfloor.clean-all -->
+	<target name="clean-all" depends="subfloor.clean-all">
 
 		<!-- devlib.dir is not being deleted -->
 		<delete dir="${devlib.dir}"/>
+	</target>
+	<!-- END: override subfloor.clean-all -->
+	
+	
+	<!-- START: override subfloor-js.clean-js -->
+	<target name="clean-js" depends="subfloor-js.clean-js">
 
 		<!-- pentaho-js-build is not being deleted -->
 		<delete dir="build-res/pentaho-js-build"/>
@@ -21,12 +28,14 @@
 		<delete file="build-res/requireCfg.js"/>
 		<delete file="build-res/requireCfg-raw.js"/>
 	</target>
+	<!-- END: override subfloor-js.clean-js -->
 
-	<!-- override subfloor-js.npm-install -->
+	
+	<!-- START: override subfloor-js.npm-install -->
 	<target name="npm-install" depends="npm-install-windows, npm-install-unix">
 		<echo message="I'm npm install!" />
 	</target>
-
+	
 	<!-- Only run if there is a package.json file -->
 	<target name="npm-install-windows" depends="check-pentaho-js-build-downloaded" if="isWindows">
 		<echo message="I'm a WINDOWS!" />
@@ -70,8 +79,10 @@
 			</else>
 		</if>
 	</target>
+	<!-- END: override subfloor-js.npm-install -->
 
-	<!-- override subfloor-js.test-js -->
+	
+	<!-- START: override subfloor-js.test-js -->
 	<target name="test-js" depends="test-js-windows, test-js-unix">
 		<echo message="I'm Test-JS!" />
 	</target>
@@ -119,12 +130,15 @@
 			</else>
 		</if>
 	</target>
+	<!-- END: override subfloor-js.test-js -->
 	
-	<!-- override subfloor-js.resolve-js (same as yesterday's subfloor-js) -->
+	
+	<!-- START: override subfloor-js.resolve-js (same as yesterday's subfloor-js) -->
 	<target name="resolve-js" depends="install-ivy, install-antcontrib">
     <ivy:resolve file="ivy.xml" conf="js"/>
     <ivy:retrieve conf="js" pattern="${js.lib.dir}/[module]-[revision](-[classifier]).[ext]"/>
 
+	<!-- js-libs where not being expanded -->
     <if>
       <available file="${js.lib.dir}"/>
       <then>
@@ -143,14 +157,6 @@
       </else>
     </if>
   </target>
-  
-  <!-- override subfloor-js.package-js-output -->
-  <target name="package-js-output">
-    <copy todir="${js.script.package.dest}" overwrite="true">
-      <fileset dir="${js.build.output.dir}">
-        <include name="**/*"/>
-      </fileset>
-    </copy>
-  </target>
+  <!-- END: override subfloor-js.resolve-js (same as yesterday's subfloor-js) -->
 
 </project>
