@@ -6,6 +6,11 @@
 	<!-- other subfloors are imported by this one -->
 	<import file="build-res/subfloor-js.xml"/>
 
+	<target name="super-clean" depends="clean-all, clean-js">
+	</target>
+	
+	<target name="super-dist" depends="resolve, resolve-js, build-js, dist">
+	</target>
 
 	<!-- START: override subfloor.clean-all -->
 	<target name="clean-all" depends="subfloor.clean-all">
@@ -26,6 +31,10 @@
 		<!-- requireCfg.js and requireCfg-raw.js are not being deleted -->
 		<delete file="build-res/requireCfg.js"/>
 		<delete file="build-res/requireCfg-raw.js"/>
+		
+		<!-- delete generated javascript.build.js -->
+		<delete file="${js.build.file}"/>
+		
 	</target>
 	<!-- END: override subfloor-js.clean-js -->
 
