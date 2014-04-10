@@ -1,0 +1,11 @@
+({
+    appDir: "../@js.module.script.agg.dir@/@js.module.script.namespace@",
+    baseUrl: ".",
+    dir: "../@js.build.output.dir@/@js.module.script.namespace@",
+    
+    modules: [
+        {
+            name: "main",
+        }
+    ]
+})
