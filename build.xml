@@ -133,7 +133,7 @@
 
 
 	<!-- START: override subfloor-js.resolve-js (same as yesterday's subfloor-js) -->
-	<target name="resolve-js" depends="install-ivy, install-antcontrib">
+	<target name="resolve-js" depends="install-ivy, install-antcontrib, generate-configuration-files">
 		<ivy:resolve file="ivy.xml" conf="js"/>
 		<ivy:retrieve conf="js" pattern="${js.lib.dir}/[module]-[revision](-[classifier]).[ext]"/>
 
@@ -190,5 +190,20 @@
 
 	</target>
 	<!-- END: override subfloor-pkg.assembke -->
+
+
+	<target name="generate-configuration-files">
+		
+		<!-- generate javascript.build.js -->
+		<copy file="${js.build.file}.template" tofile="${js.build.file}" >
+			<filterchain>
+				<replacetokens>
+					<token key="js.module.script.agg.dir" value="${js.module.script.agg.dir}"/>
+					<token key="js.module.script.namespace" value="${js.module.script.namespace}"/>
+					<token key="js.build.output.dir" value="${js.build.output.dir}"/>
+				</replacetokens>
+			</filterchain>
+		</copy>
+	</target>
 
 </project>
