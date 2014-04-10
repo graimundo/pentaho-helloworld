@@ -22,6 +22,13 @@
 
 		<!-- test dependencies -->
 		<dependency org="junit" name="junit" rev="4.11" conf="test->default"/>
+		
+		<!-- logging dependencies -->
+		<dependency org="commons-logging" name="commons-logging" rev="1.1" transitive="false"/>
+		
+		<!-- pentaho dependencies -->
+		<dependency org="pentaho" name="pentaho-platform-api" rev="${dependency.bi-platform.revision}" changing="true" transitive="false"/>
+		<dependency org="pentaho" name="pentaho-platform-core" rev="${dependency.bi-platform.revision}" changing="true" transitive="false"/>
 
 	</dependencies>
 
