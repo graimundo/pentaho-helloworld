@@ -216,6 +216,7 @@
 					<token key="js.module.script.agg.dir" value="${js.module.script.agg.dir}"/>
 					<token key="js.module.script.namespace" value="${js.module.script.namespace}"/>
 					<token key="js.build.output.dir" value="${js.build.output.dir}"/>
+					<token key="js.module.script.main.name" value="${js.module.script.main.name}"/>
 				</replacetokens>
 			</filterchain>
 		</copy>
