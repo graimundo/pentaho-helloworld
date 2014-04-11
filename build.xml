@@ -38,6 +38,9 @@
 		<!-- delete generated javascript.build.js -->
 		<delete file="${js.build.file}"/>
 		
+		<!-- delete generated karma.ci.conf.js -->
+		<delete file="${js.karma.ci.config}"/>
+		
 	</target>
 	<!-- END: override subfloor-js.clean-js -->
 
