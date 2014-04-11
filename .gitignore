@@ -6,3 +6,5 @@ dist/
 test-lib/
 lib/
 config/
+package-res/module-scripts/main.html
+package-res/module-scripts/main.js
