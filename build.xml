@@ -227,6 +227,7 @@
 			<filterchain>
 				<replacetokens>
 					<token key="js.module.script.dir" value="${js.module.script.dir}"/>
+					<token key="js.karma.test.dir" value="${js.karma.test.dir}"/>
 				</replacetokens>
 			</filterchain>
 		</copy>
