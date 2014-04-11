@@ -261,5 +261,55 @@
 		</copy>
 		
 	</target>
+	
+	
+	<target name="generate-js-app-launcher-dev">
+		
+		<!-- generate mail.html -->
+		<copy file="${js.module.script.dir}/launcher-templates/main.html.template" tofile="${js.module.script.dir}/main.html" overwrite="true">
+			<filterchain>
+				<replacetokens>
+					<token key="js.common-ui.dirpath.prefix" value="../../${js.expanded.lib.dir}"/>
+				</replacetokens>
+			</filterchain>
+		</copy>
+		
+		<!-- generate mail.js -->
+		<copy file="${js.module.script.dir}/launcher-templates/main.js.template" tofile="${js.module.script.dir}/main.js" overwrite="true">
+			<filterchain>
+				<replacetokens>
+					<token key="js.common-ui.dirpath.prefix" value="../../${js.expanded.lib.dir}"/>
+					<token key="js.source.dir" value="${js.source.dir}"/>
+					<token key="js.module.script.app.name" value="${js.module.script.app.name}"/>
+				</replacetokens>
+			</filterchain>
+		</copy>
+		
+	</target>
+	
+	
+	<target name="generate-js-app-launcher-deploy">
+		
+		<!-- generate mail.html -->
+		<copy file="${js.module.script.dir}/launcher-templates/main.js.template" tofile="${js.module.script.dir}/main.js" overwrite="true">
+			<filterchain>
+				<replacetokens>
+					<token key="js.common-ui.dirpath.prefix" value="../.."/>
+				</replacetokens>
+			</filterchain>
+		</copy>
+		
+		<!-- generate mail.js -->
+		<copy file="${js.module.script.dir}/launcher-templates/main.js.template" tofile="${js.module.script.dir}/main.js" overwrite="true">
+			<filterchain>
+				<replacetokens>
+					<token key="js.common-ui.dirpath.prefix" value="../.."/>
+					<token key="js.source.dir" value="${js.source.dir}"/>
+					<token key="js.module.script.app.name" value="${js.module.script.app.name}"/>
+				</replacetokens>
+			</filterchain>
+		</copy>
+		
+	</target>
 
 </project>
