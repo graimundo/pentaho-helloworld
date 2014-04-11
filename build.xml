@@ -91,7 +91,7 @@
 
 
 	<!-- START: override subfloor-js.test-js -->
-	<target name="test-js" depends="test-js-windows, test-js-unix">
+	<target name="test-js" depends="generate-karma-config-file, test-js-windows, test-js-unix">
 		<echo message="I'm Test-JS!" />
 	</target>
 
@@ -141,8 +141,8 @@
 	<!-- END: override subfloor-js.test-js -->
 
 
-	<!-- START: override subfloor-js.resolve-js (same as yesterday's subfloor-js) -->
-	<target name="resolve-js" depends="install-ivy, install-antcontrib, generate-configuration-files">
+	<!-- START: override subfloor-js.resolve-js -->
+	<target name="resolve-js" depends="install-ivy, install-antcontrib, generate-js-build-file">
 		<ivy:resolve file="ivy.xml" conf="js"/>
 		<ivy:retrieve conf="js" pattern="${js.lib.dir}/[module]-[revision](-[classifier]).[ext]"/>
 
@@ -201,7 +201,7 @@
 	<!-- END: override subfloor-pkg.assembke -->
 
 
-	<target name="generate-configuration-files">
+	<target name="generate-js-build-file">
 		
 		<!-- generate javascript.build.js -->
 		<copy file="${js.build.file}.template" tofile="${js.build.file}" >
@@ -213,6 +213,21 @@
 				</replacetokens>
 			</filterchain>
 		</copy>
+		
+	</target>
+	
+	
+	<target name="generate-karma-config-file">
+		
+		<!-- generate karma.ci.conf.js -->
+		<copy file="${js.karma.ci.config}.template" tofile="${js.karma.ci.config}" >
+			<filterchain>
+				<replacetokens>
+					<token key="js.module.script.dir" value="${js.module.script.dir}"/>
+				</replacetokens>
+			</filterchain>
+		</copy>
+		
 	</target>
 
 </project>

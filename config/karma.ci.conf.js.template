@@ -4,7 +4,7 @@ module.exports = function(config){
     basePath : '../',
 
     files : [
-      'package-res/module-scripts/js/tests/**/*.js'
+      '@js.module.script.dir@/js/tests/**/*.js'
     ],
 
     autoWatch : true,
