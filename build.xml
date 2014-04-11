@@ -1,4 +1,4 @@
-<project name="PentahoHelloWorld" basedir="." default="jar" xmlns:ivy="antlib:org.apache.ivy.ant" > 
+<project name="PentahoHelloWorld" basedir="." default="mega-dist" xmlns:ivy="antlib:org.apache.ivy.ant" > 
 	<description> 
 		This build file is used to create the PentahoHelloWorld project and works with the subfloor.xml file. 
 	</description> 
@@ -6,17 +6,20 @@
 	<!-- other subfloors are imported by this one -->
 	<import file="build-res/subfloor-js.xml"/>
 
-	<target name="super-clean" depends="clean-all, clean-js">
-	</target>
+	<target name="mega-dist" depends="super-clean, super-dist"/>
 	
-	<target name="super-dist" depends="resolve, resolve-js, build-js, dist">
-	</target>
+	<target name="super-clean" depends="clean-all, clean-js"/>
+	
+	<target name="super-dist" depends="resolve, resolve-js, build-js, dist"/>
 
 	<!-- START: override subfloor.clean-all -->
 	<target name="clean-all" depends="subfloor.clean-all">
 
 		<!-- devlib.dir is not being deleted -->
 		<delete dir="${devlib.dir}"/>
+		
+		<!-- delete generated plugin.xml -->
+		<delete file="${package.resdir}/plugin.xml" />
 	</target>
 	<!-- END: override subfloor.clean-all -->
 
@@ -169,7 +172,7 @@
 
 
 	<!-- START: override subfloor-pkg.assembke -->
-	<target name="assemble" depends="assemble.init,assemble.copy-libs">
+	<target name="assemble" depends="assemble.init, assemble.copy-libs, generate-plugin-config-file">
 		<copy todir="${approot.stage.dir}" overwrite="true">
 
 			<!-- copy from script build output dir instead -->
@@ -224,6 +227,27 @@
 			<filterchain>
 				<replacetokens>
 					<token key="js.module.script.dir" value="${js.module.script.dir}"/>
+				</replacetokens>
+			</filterchain>
+		</copy>
+		
+	</target>
+	
+	
+	<target name="generate-plugin-config-file">
+		
+		<!-- generate plugin.xml -->
+		<copy file="${package.resdir}/plugin.xml.template" tofile="${package.resdir}/plugin.xml" >
+			<filterchain>
+				<replacetokens>
+					<token key="plugin.id" value="${plugin.id}"/>
+					<token key="js.module.script.namespace" value="${js.module.script.namespace}"/>
+					<token key="plugin.globalization.perspective-name.key" value="${plugin.globalization.perspective-name.key}"/>
+					<token key="plugin.globalization.dir" value="${plugin.globalization.dir}"/>
+					<token key="plugin.main.html" value="${plugin.main.html}"/>
+					<token key="plugin.content-generator.type" value="${plugin.content-generator.type}"/>
+					<token key="plugin.content-generator.classname" value="${plugin.content-generator.classname}"/>
+					<token key="plugin.content-generator.title" value="${plugin.content-generator.title}"/>
 				</replacetokens>
 			</filterchain>
 		</copy>
