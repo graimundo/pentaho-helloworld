@@ -6,7 +6,7 @@
 	</static-paths>
 
 	<perspective id="@plugin.id@.perspective" title="${@plugin.globalization.perspective-name.key@}" layout-priority="-1"
-               resourcebundle="content/@plugin.id@/@js.module.script.namespace@/@plugin.globalization.dir@" content-url="content/@plugin.id@/@js.module.script.namespace@/@plugin.main.html@">
+               resourcebundle="content/@plugin.id@/@js.module.script.namespace@/@plugin.globalization.dir@" content-url="content/@plugin.id@/@js.module.script.namespace@/main.html">
 	</perspective>  
 
 	<content-generator scope="local" id="@plugin.id@" type="@plugin.content-generator.type@" url="">

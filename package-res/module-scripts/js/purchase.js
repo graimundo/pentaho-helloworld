@@ -1,4 +1,4 @@
-define( ["js/credits", "js/products"], function( credits, products ) {
+define( ["credits", "products"], function( credits, products ) {
  
   console.log( "Function : purchaseProduct" );
  
