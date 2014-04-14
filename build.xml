@@ -229,47 +229,94 @@
 	<!-- END: override subfloor-js.build-js -->
 	
 	
-	<!-- START: override subfloor.compile -->
-	<target name="compile" depends="process-java-source-ant-tokens">
-		<antcall target="subfloor.compile"/>
-	</target>
-	<!-- END: override subfloor.compile -->
-	
-	
 	<!-- START: override subfloor.compile.compile -->
-	<target name="compile.compile">
-		
-		<!-- call subfloor.compile.compile with new src.dir value -->
+	<target name="compile.compile" depends="process-java-source-ant-tokens">
 		<antcall target="subfloor.compile.compile">
 			<param name="src.dir" value="${src.dir.processed}"/>
 		</antcall>
-		
 	</target>
 	<!-- END: override subfloor.compile.compile -->
 	
 	
 	<!-- START: override subfloor.compile.res_copy -->
-	<target name="compile.res_copy">
-		
-		<!-- call subfloor.compile.res_copy with new src.dir value -->
+	<target name="compile.res_copy" depends="process-java-source-ant-tokens">
 		<antcall target="subfloor.compile.res_copy">
 			<param name="src.dir" value="${src.dir.processed}"/>
 		</antcall>
-		
 	</target>
 	<!-- END: override subfloor.compile.res_copy -->
 	
 	
 	<!-- START: override subfloor.compile.src_copy -->
-	<target name="compile.src_copy">
-		
-		<!-- call subfloor.compile.src_copy with new src.dir value -->
+	<target name="compile.src_copy" depends="process-java-source-ant-tokens">
 		<antcall target="subfloor.compile.src_copy">
 			<param name="src.dir" value="${src.dir.processed}"/>
 		</antcall>
-		
 	</target>
 	<!-- END: override subfloor.compile.src_copy -->
+	
+	
+	<!-- START: override subfloor.source.jar -->
+	<target name="source.jar" depends="process-java-source-ant-tokens">
+		<antcall target="subfloor.source.jar">
+			<param name="src.dir" value="${src.dir.processed}"/>
+		</antcall>
+	</target>
+	<!-- END: override subfloor.source.jar -->
+	
+	
+	<!-- START: override subfloor.source.zip -->
+	<target name="source.zip" depends="process-java-source-ant-tokens">
+		<antcall target="subfloor.source.zip">
+			<param name="src.dir" value="${src.dir.processed}"/>
+		</antcall>
+	</target>
+	<!-- END: override subfloor.source.zip -->
+	
+	
+	<!-- START: override subfloor.source.targz -->
+	<target name="source.targz" depends="process-java-source-ant-tokens">
+		<antcall target="subfloor.source.targz">
+			<param name="src.dir" value="${src.dir.processed}"/>
+		</antcall>
+	</target>
+	<!-- END: override subfloor.source.targz -->
+	
+	
+	<!-- START: override subfloor.javadoc -->
+	<target name="javadoc" depends="process-java-source-ant-tokens">
+		<antcall target="subfloor.javadoc">
+			<param name="src.dir" value="${src.dir.processed}"/>
+		</antcall>
+	</target>
+	<!-- END: override subfloor.javadoc -->
+	
+	
+	<!-- START: override subfloor.cobertura.xml-report -->
+	<target name="cobertura.xml-report" depends="process-java-source-ant-tokens">
+		<antcall target="subfloor.cobertura.xml-report">
+			<param name="src.dir" value="${src.dir.processed}"/>
+		</antcall>
+	</target>
+	<!-- END: override subfloor.cobertura.xml-report -->
+	
+	
+	<!-- START: override subfloor.cobertura.html-report -->
+	<target name="cobertura.html-report" depends="process-java-source-ant-tokens">
+		<antcall target="subfloor.cobertura.html-report">
+			<param name="src.dir" value="${src.dir.processed}"/>
+		</antcall>
+	</target>
+	<!-- END: override subfloor.cobertura.html-report -->
+	
+	
+	<!-- START: override subfloor.sonar -->
+	<target name="sonar" depends="process-java-source-ant-tokens">
+		<antcall target="subfloor.sonar">
+			<param name="src.dir" value="${src.dir.processed}"/>
+		</antcall>
+	</target>
+	<!-- END: override subfloor.sonar -->
 	
 
 	<target name="generate-js-build-file">
