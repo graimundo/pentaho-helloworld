@@ -7,6 +7,8 @@
 	<import file="build-res/subfloor-js.xml"/>
 	
 	<property name="js.module.launcher.templates.dir" value="launcher-templates"/>
+	<property name="plugin.java.rest.path.root" value="/${plugin.id}/api"/>
+	<property name="src.dir.processed" value="${basedir}/processed-src"/>
 
 	<target name="mega-dist" depends="super-clean, super-dist"/>
 	
@@ -25,6 +27,9 @@
 		
 		<!-- delete generated plugin.spring.xml -->
 		<delete file="${package.resdir}/plugin.spring.xml" />
+		
+		<!-- delete generated src.dir.processed -->
+		<delete dir="${src.dir.processed}"/>
 	</target>
 	<!-- END: override subfloor.clean-all -->
 
@@ -183,7 +188,7 @@
 	<!-- END: override subfloor-js.resolve-js (same as yesterday's subfloor-js) -->
 
 
-	<!-- START: override subfloor-pkg.assembke -->
+	<!-- START: override subfloor-pkg.assemble -->
 	<target name="assemble" depends="generate-plugin-config-file, generate-plugin-spring-config-file, assemble.init, assemble.copy-libs">
 		<copy todir="${approot.stage.dir}" overwrite="true">
 
@@ -216,13 +221,56 @@
 		</copy>
 
 	</target>
-	<!-- END: override subfloor-pkg.assembke -->
+	<!-- END: override subfloor-pkg.assemble -->
 	
 	
 	<!-- START: override subfloor-js.build-js -->
 	<target name="build-js" depends="generate-js-build-file, generate-js-app-launcher-deploy, subfloor-js.build-js" />
-	<!-- END: override subfloor-pkg.assembke -->
-
+	<!-- END: override subfloor-js.build-js -->
+	
+	
+	<!-- START: override subfloor.compile -->
+	<target name="compile" depends="process-java-source-ant-tokens">
+		<antcall target="subfloor.compile"/>
+	</target>
+	<!-- END: override subfloor.compile -->
+	
+	
+	<!-- START: override subfloor.compile.compile -->
+	<target name="compile.compile">
+		
+		<!-- call subfloor.compile.compile with new src.dir value -->
+		<antcall target="subfloor.compile.compile">
+			<param name="src.dir" value="${src.dir.processed}"/>
+		</antcall>
+		
+	</target>
+	<!-- END: override subfloor.compile.compile -->
+	
+	
+	<!-- START: override subfloor.compile.res_copy -->
+	<target name="compile.res_copy">
+		
+		<!-- call subfloor.compile.res_copy with new src.dir value -->
+		<antcall target="subfloor.compile.res_copy">
+			<param name="src.dir" value="${src.dir.processed}"/>
+		</antcall>
+		
+	</target>
+	<!-- END: override subfloor.compile.res_copy -->
+	
+	
+	<!-- START: override subfloor.compile.src_copy -->
+	<target name="compile.src_copy">
+		
+		<!-- call subfloor.compile.src_copy with new src.dir value -->
+		<antcall target="subfloor.compile.src_copy">
+			<param name="src.dir" value="${src.dir.processed}"/>
+		</antcall>
+		
+	</target>
+	<!-- END: override subfloor.compile.src_copy -->
+	
 
 	<target name="generate-js-build-file">
 		
@@ -336,6 +384,20 @@
 					<token key="js.module.script.app.name" value="${js.module.script.app.name}"/>
 				</replacetokens>
 			</filterchain>
+		</copy>
+		
+	</target>
+	
+	
+	<target name="process-java-source-ant-tokens">
+	
+		<delete dir="${src.dir.processed}"/>
+		
+		<copy todir="${src.dir.processed}">
+			<fileset dir="${src.dir}"/>
+			<filterset>
+				<filter token="plugin.java.rest.path.root" value="${plugin.java.rest.path.root}"/>
+			</filterset>
 		</copy>
 		
 	</target>

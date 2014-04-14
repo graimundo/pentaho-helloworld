@@ -6,7 +6,7 @@ import javax.ws.rs.Produces;
 
 import static javax.ws.rs.core.MediaType.*;
 
-@Path( "/pentaho-helloworld-plugin/api" )
+@Path( "@plugin.java.rest.path.root@" )
 public class PentahoHelloWorldService {
 
   @GET
