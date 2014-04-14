@@ -38,8 +38,8 @@ import org.pentaho.platform.engine.services.solution.BaseContentGenerator;
 
 public class PentahoHelloWorldContentGenerator extends BaseContentGenerator {
 
-    private static final long serialVersionUID = 1L;
-    public static final String ENCODING = "utf-8";
+  public static final String ENCODING = "utf-8";
+  private static final long serialVersionUID = 1L;
 
   @Override
   public Log getLogger() {
@@ -47,11 +47,6 @@ public class PentahoHelloWorldContentGenerator extends BaseContentGenerator {
   }
 
   @Override
-  public void createContent() throws Exception {    
+  public void createContent() throws Exception {
   }
-
-
- 
-
-
 }
