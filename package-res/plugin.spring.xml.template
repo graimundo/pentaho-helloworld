@@ -9,5 +9,5 @@
 
   <context:annotation-config />
     <bean id="api" class="org.pentaho.platform.web.servlet.JAXRSPluginServlet"/>
-    <bean id="pentaho-helloworld.service" class="org.pentaho.helloworld.PentahoHelloWorldService"/>
+    <bean id="@plugin.id@" class="@plugin.service.classname@"/>
 </beans>

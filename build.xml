@@ -22,6 +22,9 @@
 		
 		<!-- delete generated plugin.xml -->
 		<delete file="${package.resdir}/plugin.xml" />
+		
+		<!-- delete generated plugin.spring.xml -->
+		<delete file="${package.resdir}/plugin.spring.xml" />
 	</target>
 	<!-- END: override subfloor.clean-all -->
 
@@ -181,7 +184,7 @@
 
 
 	<!-- START: override subfloor-pkg.assembke -->
-	<target name="assemble" depends="assemble.init, assemble.copy-libs">
+	<target name="assemble" depends="generate-plugin-config-file, generate-plugin-spring-config-file, assemble.init, assemble.copy-libs">
 		<copy todir="${approot.stage.dir}" overwrite="true">
 
 			<!-- copy from script build output dir instead -->
@@ -217,7 +220,7 @@
 	
 	
 	<!-- START: override subfloor-js.build-js -->
-	<target name="build-js" depends="generate-js-build-file, generate-plugin-config-file, generate-js-app-launcher-deploy, subfloor-js.build-js" />
+	<target name="build-js" depends="generate-js-build-file, generate-js-app-launcher-deploy, subfloor-js.build-js" />
 	<!-- END: override subfloor-pkg.assembke -->
 
 
@@ -266,6 +269,21 @@
 					<token key="plugin.content-generator.type" value="${plugin.content-generator.type}"/>
 					<token key="plugin.content-generator.classname" value="${plugin.content-generator.classname}"/>
 					<token key="plugin.content-generator.title" value="${plugin.content-generator.title}"/>
+				</replacetokens>
+			</filterchain>
+		</copy>
+		
+	</target>
+	
+	
+	<target name="generate-plugin-spring-config-file">
+		
+		<!-- generate plugin.spring.xml -->
+		<copy file="${package.resdir}/plugin.spring.xml.template" tofile="${package.resdir}/plugin.spring.xml" >
+			<filterchain>
+				<replacetokens>
+					<token key="plugin.id" value="${plugin.id}"/>
+					<token key="plugin.service.classname" value="${plugin.service.classname}"/>
 				</replacetokens>
 			</filterchain>
 		</copy>
