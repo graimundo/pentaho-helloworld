@@ -18,7 +18,7 @@ public class RDO implements IRDO {
     //initialize user array to simulate persistency
     for ( int i = 0; i < 5; i++ ) {
 
-      User user = new User( "user " + i, "pass " + i, i );
+      User user = new User( "user" + i, "pass" + i, i );
       this.Users.add( user );
     }
   }

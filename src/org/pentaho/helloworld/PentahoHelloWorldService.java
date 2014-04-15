@@ -4,6 +4,7 @@ import org.pentaho.helloworld.domain.dtos.UserDTO;
 import org.pentaho.helloworld.domain.services.IRDO;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import java.util.List;
 
@@ -31,5 +32,12 @@ public class PentahoHelloWorldService {
   @Produces( { APPLICATION_JSON, APPLICATION_XML } )
   public List<UserDTO> getUsers() {
     return this.RDO.getUsers();
+  }
+
+  @GET
+  @Path( "/user/{userName}" )
+  @Produces( { APPLICATION_JSON, APPLICATION_XML } )
+  public UserDTO getUser( @PathParam( "userName" ) String userName ) {
+    return this.RDO.getUser( userName );
   }
 }
