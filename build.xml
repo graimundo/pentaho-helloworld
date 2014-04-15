@@ -7,7 +7,8 @@
 	<import file="build-res/subfloor-js.xml"/>
 	
 	<property name="js.module.launcher.templates.dir" value="launcher-templates"/>
-	<property name="plugin.java.rest.path.root" value="/${plugin.id}/api"/>
+	<property name="jax-rs.bean.name" value="api"/>
+	<property name="plugin.java.rest.path.root" value="/${plugin.id}/${jax-rs.bean.name}"/>
 	<property name="src.dir.processed" value="${basedir}/processed-src"/>
 
 	<target name="mega-dist" depends="super-clean, super-dist"/>
@@ -377,6 +378,7 @@
 					<token key="plugin.id" value="${plugin.id}"/>
 					<token key="plugin.service.classname" value="${plugin.service.classname}"/>
 					<token key="plugin.content-generator.classname" value="${plugin.content-generator.classname}"/>
+					<token key="jax-rs.bean.name" value="${jax-rs.bean.name}"/>
 				</replacetokens>
 			</filterchain>
 		</copy>
