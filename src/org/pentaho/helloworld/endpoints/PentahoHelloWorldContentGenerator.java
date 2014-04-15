@@ -31,7 +31,7 @@
  * @author Pedro Alves (pedro.alves@webdetails.pt)
  */
 
-package org.pentaho.helloworld;
+package org.pentaho.helloworld.endpoints;
 
 import org.apache.commons.logging.Log;
 import org.pentaho.platform.engine.services.solution.BaseContentGenerator;

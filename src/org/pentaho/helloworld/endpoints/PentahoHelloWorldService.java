@@ -1,4 +1,4 @@
-package org.pentaho.helloworld;
+package org.pentaho.helloworld.endpoints;
 
 import org.pentaho.helloworld.domain.dtos.UserDTO;
 import org.pentaho.helloworld.domain.services.IRDO;

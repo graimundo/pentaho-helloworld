@@ -417,6 +417,7 @@
 					<token key="plugin.service.classname" value="${plugin.service.classname}"/>
 					<token key="plugin.content-generator.classname" value="${plugin.content-generator.classname}"/>
 					<token key="jax-rs.bean.name" value="${jax-rs.bean.name}"/>
+					<token key="plugin.domain-model.rdo.classname" value="${plugin.domain-model.rdo.classname}"/>
 				</replacetokens>
 			</filterchain>
 		</copy>
