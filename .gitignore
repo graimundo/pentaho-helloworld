@@ -9,3 +9,5 @@ config/
 package-res/module-scripts/main.html
 package-res/module-scripts/main.js
 package-res/plugin.xml
+package-res/plugin.spring.xml
+processed-src/

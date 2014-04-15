@@ -8,6 +8,7 @@
                            http://jax-ws.dev.java.net/spring/servlet http://jax-ws.dev.java.net/spring/servlet.xsd">
 
   <context:annotation-config />
-    <bean id="api" class="org.pentaho.platform.web.servlet.JAXRSPluginServlet"/>
-    <bean id="@plugin.id@.service" class="@plugin.service.classname@"/>
+  <bean id="api" class="org.pentaho.platform.web.servlet.JAXRSPluginServlet"/>
+  <bean id="@plugin.id@" class="@plugin.content-generator.classname@" scope="prototype"/>
+  <bean id="@plugin.id@.service" class="@plugin.service.classname@"/>
 </beans>

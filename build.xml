@@ -361,9 +361,6 @@
 					<token key="js.module.script.namespace" value="${js.module.script.namespace}"/>
 					<token key="plugin.globalization.perspective-name.key" value="${plugin.globalization.perspective-name.key}"/>
 					<token key="plugin.globalization.dir" value="${plugin.globalization.dir}"/>
-					<token key="plugin.content-generator.type" value="${plugin.content-generator.type}"/>
-					<token key="plugin.content-generator.classname" value="${plugin.content-generator.classname}"/>
-					<token key="plugin.content-generator.title" value="${plugin.content-generator.title}"/>
 				</replacetokens>
 			</filterchain>
 		</copy>
@@ -379,6 +376,7 @@
 				<replacetokens>
 					<token key="plugin.id" value="${plugin.id}"/>
 					<token key="plugin.service.classname" value="${plugin.service.classname}"/>
+					<token key="plugin.content-generator.classname" value="${plugin.content-generator.classname}"/>
 				</replacetokens>
 			</filterchain>
 		</copy>
