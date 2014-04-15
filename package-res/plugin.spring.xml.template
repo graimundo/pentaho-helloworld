@@ -10,5 +10,8 @@
   <context:annotation-config />
   <bean id="@jax-rs.bean.name@" class="org.pentaho.platform.web.servlet.JAXRSPluginServlet"/>
   <bean id="@plugin.id@" class="@plugin.content-generator.classname@" scope="prototype"/>
-  <bean id="@plugin.id@.service" class="@plugin.service.classname@"/>
+  <bean id="@plugin.id@.rdo" class="org.pentaho.helloworld.domain.services.RDO"/>
+  <bean id="@plugin.id@.service" class="@plugin.service.classname@">
+	<constructor-arg ref="@plugin.id@.rdo"/>
+  </bean>
 </beans>

@@ -2,6 +2,8 @@ package org.pentaho.helloworld;
 
 import org.pentaho.helloworld.domain.dtos.UserDTO;
 import org.pentaho.helloworld.domain.services.IRDO;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -15,9 +17,11 @@ public class PentahoHelloWorldService {
 
   private IRDO RDO;
 
-  public PentahoHelloWorldService() {
-    //put dependency injection here...
-    this.RDO = new org.pentaho.helloworld.domain.services.RDO();
+  @Autowired
+  public PentahoHelloWorldService( IRDO rdo ) {
+
+    //dependency obtained via constructor dependency injection from spring framework
+    this.RDO = rdo;
   }
 
   @GET
