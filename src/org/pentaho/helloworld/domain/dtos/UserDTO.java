@@ -28,6 +28,8 @@ public class UserDTO {
   //endregion
 
   //region Constructors
+
+  //required constructor for JAX-RS object serialization via JAXB
   public UserDTO() {}
 
   public UserDTO( User user ) {
