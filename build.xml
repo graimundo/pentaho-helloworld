@@ -3,14 +3,52 @@
 		This build file is used to create the PentahoHelloWorld project and works with the subfloor.xml file. 
 	</description> 
 
+	<!--********************************************
+	***************** START: IMPORTS ***************
+	*********************************************-->
+	
 	<!-- other subfloors are imported by this one -->
 	<import file="build-res/subfloor-js.xml"/>
 	
+	<!--********************************************
+	****************** END: IMPORTS ****************
+	**********************************************-->
+	
+	
+	<!--********************************************
+	*************** START: PROPERTIES **************
+	*********************************************-->
+	
+	<!-- Default property values (can be customized by override using build.properties) -->
 	<property name="js.module.launcher.templates.dir" value="launcher-templates"/>
 	<property name="jax-rs.bean.name" value="api"/>
 	<property name="plugin.java.rest.path.root" value="/${plugin.id}/${jax-rs.bean.name}"/>
 	<property name="src.dir.processed" value="${basedir}/processed-src"/>
 
+	<!-- added to enable local karma execution --> 
+	<property name="js.karma.dir.bin" value="node_modules/karma/bin/karma"/>
+
+	<!-- karma test sources location -->
+	<property name="js.karma.test.dir" value="js/tests"/>
+	
+	<!-- JS app entry module name -->
+	<property name="js.module.script.app.name" value="app"/>
+
+	<!-- JS app source directory -->
+	<property name="js.source.dir" value="js"/>
+	
+	<!-- globalization -->
+	<property name="plugin.globalization.dir" value="lang/messages"/>
+	
+	<!--********************************************
+	**************** END: PROPERTIES ***************
+	*********************************************-->
+	
+	
+	<!--********************************************
+	***************** START: TARGETS ***************
+	*********************************************-->
+	
 	<target name="mega-dist" depends="super-clean, super-dist"/>
 	
 	<target name="super-clean" depends="clean-all, clean-js"/>
@@ -448,5 +486,9 @@
 		</copy>
 		
 	</target>
+	
+	<!--********************************************
+	****************** END: TARGETS ****************
+	*********************************************-->
 
 </project>
