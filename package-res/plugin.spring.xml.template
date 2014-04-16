@@ -9,9 +9,18 @@
 
   <context:annotation-config />
   <bean id="@jax-rs.bean.name@" class="org.pentaho.platform.web.servlet.JAXRSPluginServlet"/>
-  <bean id="@plugin.id@" class="@plugin.content-generator.classname@" scope="prototype"/>
-  <bean id="@plugin.id@.rdo" class="@plugin.domain-model.rdo.classname@"/>
-  <bean id="@plugin.id@.service" class="@plugin.service.classname@">
+  <bean id="@plugin.id@" class="org.pentaho.helloworld.endpoints.PentahoHelloWorldContentGenerator" scope="prototype"/>
+  <bean id="@plugin.id@.address-factory" class="org.pentaho.helloworld.domain.model.factories.AddressFactory"/>
+  <bean id="@plugin.id@.user-factory" class="org.pentaho.helloworld.domain.model.factories.UserFactory">
+	<constructor-arg ref="@plugin.id@.address-factory"/>
+  </bean>
+  <bean id="@plugin.id@.user-service" class="org.pentaho.helloworld.domain.services.UserService">
+	<constructor-arg ref="@plugin.id@.user-factory"/>
+  </bean>
+  <bean id="@plugin.id@.rdo" class="org.pentaho.helloworld.domain.services.RDO">
+	<constructor-arg ref="@plugin.id@.user-service"/>
+  </bean>
+  <bean id="@plugin.id@.service-endpoint" class="org.pentaho.helloworld.endpoints.PentahoHelloWorldService">
 	<constructor-arg ref="@plugin.id@.rdo"/>
   </bean>
 </beans>

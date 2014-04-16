@@ -1,43 +1,43 @@
 package org.pentaho.helloworld.domain.model;
 
-public class User {
+import org.pentaho.helloworld.domain.model.interfaces.IAddress;
+import org.pentaho.helloworld.domain.model.interfaces.IUser;
+
+public class User implements IUser {
 
   //region Properties
   private String userName;
   private String password;
+  private IAddress address;
   //this property is hidden from the DTO on purpose,
   //to illustrate that domain objects should not be passed over the wire.
   private int age;
 
+  @Override
   public String getUserName() {
-    return userName;
+    return this.userName;
   }
 
-  public void setUserName( String userName ) {
-    this.userName = userName;
-  }
-
+  @Override
   public String getPassword() {
-    return password;
+    return this.password;
   }
 
-  public void setPassword( String password ) {
-    this.password = password;
+  @Override
+  public IAddress getAddress() {
+    return this.address;
   }
 
   public int getAge() {
     return age;
   }
-
-  public void setAge( int age ) {
-    this.age = age;
-  }
   //endregion
 
   //region Constructors
-  public User( String userName, String password, int age ) {
+  public User( String userName, String password, IAddress address, int age) {
     this.userName = userName;
     this.password = password;
+    this.address = address;
     this.age = age;
   }
   //endregion
