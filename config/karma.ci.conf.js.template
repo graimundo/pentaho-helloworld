@@ -1,25 +1,34 @@
 module.exports = function(config){
   config.set({
 
+    //base path is relative to the location of this configuration file
     basePath : '../',
 
     files : [
-      '@js.module.script.dir@/@js.karma.test.dir@/**/*.js'
+      {pattern: '@js.module.script.dir@/@js.source.dir@/**/*.js', included: false},
+	  {pattern: '@js.module.script.dir@/@js.tests.dir@/**/*Spec.js', included: false},
+	  
+	  '@js.expanded.lib.dir@/@js.library.jquery@.js',
+	  '@js.module.script.dir@/@js.tests.dir@/test-main.js'
     ],
 
     autoWatch : true,
 
-    frameworks: ['jasmine'],
+    frameworks: ['jasmine', 'requirejs'],
 
     browsers : ['PhantomJS'],
 
     plugins : [
             'karma-phantomjs-launcher',
-            'karma-jasmine'
+            'karma-jasmine',
+			'karma-junit-reporter',
+			'karma-requirejs'
             ],
 
+    reporters: ['junit'],
+			
     junitReporter : {
-      outputFile: 'test_out/unit.xml',
+      outputFile: '@js.testreports.dir@/unit.xml',
       suite: 'unit'
     }
 

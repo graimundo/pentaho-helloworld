@@ -1,7 +1,7 @@
-require.config({
+requirejs.config({
 	baseUrl: './@js.source.dir@',
 	paths: {
-		jquery: '../@js.common-ui.dirpath.prefix@/common-ui/resources/web/jquery/jquery-1.9.1.min'
+		jquery: '../@js.common-ui.dirpath.prefix@/@js.library.jquery@'
 	}
 });
 

@@ -6,15 +6,13 @@ define( ["credits", "products"], function( credits, products ) {
     purchaseProduct: function() {
  
       var credit = credits.getCredits();
-      var resultDiv = document.getElementById("result");
 
       if ( credit > 0 ) {
         products.reserveProduct();
-        resultDiv.innerHTML = "Reserved Product!";
-        return true;
+        return "Reserved Product!";
       }
-      resultDiv.innerHTML = "Product not reserved...";
-      return false;
+	  
+      return "Product not reserved...";
     }
   }
 });

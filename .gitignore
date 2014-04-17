@@ -11,3 +11,4 @@ package-res/module-scripts/main.js
 package-res/plugin.xml
 package-res/plugin.spring.xml
 processed-src/
+package-res/module-scripts/js-tests/test-main.js
