@@ -1,4 +1,4 @@
-package org.pentaho.helloworld.domain.model.interfaces;
+package org.pentaho.helloworld.domain.model.entities.interfaces;
 
 public interface IAddress {
 
@@ -7,6 +7,6 @@ public interface IAddress {
   void setStreetName( String streetName );
 
   String getPostalCode();
-  void setPostalCode( String postalCode);
+  void setPostalCode( String postalCode );
   //endregion
 }

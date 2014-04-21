@@ -2,7 +2,7 @@ package org.pentaho.helloworld.domain.model.dtos;
 
 import org.pentaho.helloworld.domain.model.dtos.interfaces.IDTO;
 import org.pentaho.helloworld.domain.model.factories.interfaces.IUserFactory;
-import org.pentaho.helloworld.domain.model.interfaces.IUser;
+import org.pentaho.helloworld.domain.model.entities.interfaces.IUser;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
 import java.util.Collection;

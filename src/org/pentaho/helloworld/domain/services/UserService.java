@@ -1,9 +1,9 @@
 package org.pentaho.helloworld.domain.services;
 
-import org.pentaho.helloworld.domain.model.interfaces.IAddress;
+import org.pentaho.helloworld.domain.model.entities.interfaces.IAddress;
 import org.pentaho.helloworld.domain.model.factories.interfaces.IAddressFactory;
 import org.pentaho.helloworld.domain.model.factories.interfaces.IUserFactory;
-import org.pentaho.helloworld.domain.model.interfaces.IUser;
+import org.pentaho.helloworld.domain.model.entities.interfaces.IUser;
 import org.pentaho.helloworld.domain.services.interfaces.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import java.util.ArrayList;

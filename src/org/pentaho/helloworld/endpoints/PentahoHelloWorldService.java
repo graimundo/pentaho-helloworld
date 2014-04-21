@@ -1,7 +1,7 @@
 package org.pentaho.helloworld.endpoints;
 
 import org.pentaho.helloworld.domain.model.dtos.UserDTO;
-import org.pentaho.helloworld.domain.model.interfaces.IUser;
+import org.pentaho.helloworld.domain.model.entities.interfaces.IUser;
 import org.pentaho.helloworld.domain.services.interfaces.IRDO;
 import org.springframework.beans.factory.annotation.Autowired;
 import javax.ws.rs.GET;

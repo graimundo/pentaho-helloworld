@@ -1,6 +1,6 @@
-package org.pentaho.helloworld.domain.model;
+package org.pentaho.helloworld.domain.model.entities;
 
-import org.pentaho.helloworld.domain.model.interfaces.IAddress;
+import org.pentaho.helloworld.domain.model.entities.interfaces.IAddress;
 
 public class Address implements IAddress {
 

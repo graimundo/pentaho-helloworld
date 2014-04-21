@@ -5,8 +5,8 @@ import org.junit.Test;
 import org.pentaho.helloworld.domain.model.dtos.UserDTO;
 import org.pentaho.helloworld.domain.model.factories.AddressFactory;
 import org.pentaho.helloworld.domain.model.factories.UserFactory;
-import org.pentaho.helloworld.domain.model.interfaces.IAddress;
-import org.pentaho.helloworld.domain.model.interfaces.IUser;
+import org.pentaho.helloworld.domain.model.entities.interfaces.IAddress;
+import org.pentaho.helloworld.domain.model.entities.interfaces.IUser;
 
 public class UserDTOTest {
 

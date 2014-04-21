@@ -1,7 +1,7 @@
 package org.pentaho.helloworld.domain.model.factories.interfaces;
 
-import org.pentaho.helloworld.domain.model.interfaces.IAddress;
-import org.pentaho.helloworld.domain.model.interfaces.IUser;
+import org.pentaho.helloworld.domain.model.entities.interfaces.IAddress;
+import org.pentaho.helloworld.domain.model.entities.interfaces.IUser;
 
 public interface IUserFactory {
   IUser create( String userName, String password, IAddress address, int age );

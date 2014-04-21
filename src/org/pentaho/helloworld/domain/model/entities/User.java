@@ -1,7 +1,7 @@
-package org.pentaho.helloworld.domain.model;
+package org.pentaho.helloworld.domain.model.entities;
 
-import org.pentaho.helloworld.domain.model.interfaces.IAddress;
-import org.pentaho.helloworld.domain.model.interfaces.IUser;
+import org.pentaho.helloworld.domain.model.entities.interfaces.IAddress;
+import org.pentaho.helloworld.domain.model.entities.interfaces.IUser;
 
 public class User implements IUser {
 
@@ -34,7 +34,7 @@ public class User implements IUser {
   //endregion
 
   //region Constructors
-  public User( String userName, String password, IAddress address, int age) {
+  public User( String userName, String password, IAddress address, int age ) {
     this.userName = userName;
     this.password = password;
     this.address = address;

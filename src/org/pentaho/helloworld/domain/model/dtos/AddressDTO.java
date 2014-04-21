@@ -1,6 +1,6 @@
 package org.pentaho.helloworld.domain.model.dtos;
 
-import org.pentaho.helloworld.domain.model.interfaces.IAddress;
+import org.pentaho.helloworld.domain.model.entities.interfaces.IAddress;
 import org.pentaho.helloworld.domain.model.dtos.interfaces.IDTO;
 import org.pentaho.helloworld.domain.model.factories.interfaces.IAddressFactory;
 import javax.xml.bind.annotation.XmlRootElement;

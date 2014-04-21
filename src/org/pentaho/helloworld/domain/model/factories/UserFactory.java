@@ -1,8 +1,8 @@
 package org.pentaho.helloworld.domain.model.factories;
 
-import org.pentaho.helloworld.domain.model.interfaces.IAddress;
-import org.pentaho.helloworld.domain.model.interfaces.IUser;
-import org.pentaho.helloworld.domain.model.User;
+import org.pentaho.helloworld.domain.model.entities.interfaces.IAddress;
+import org.pentaho.helloworld.domain.model.entities.interfaces.IUser;
+import org.pentaho.helloworld.domain.model.entities.User;
 import org.pentaho.helloworld.domain.model.factories.interfaces.IAddressFactory;
 import org.pentaho.helloworld.domain.model.factories.interfaces.IUserFactory;
 
@@ -25,6 +25,6 @@ public class UserFactory implements IUserFactory {
     IAddress address = this.addressFactory.create();
     address.setStreetName( addressStreetName );
     address.setPostalCode( addressPostalCode );
-    return new User ( userName, password, address, age );
+    return new User( userName, password, address, age );
   }
 }
