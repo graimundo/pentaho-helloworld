@@ -14,11 +14,13 @@ Assumptions:
         2. RequireJS optimizer configuration file (javascript.build.js.template)
     - **config**: client-side testing configuration via "karma.ci.conf.js.template"
     - **package-res**: plugin configuration templates and client-side source code
-    1. **module-scripts**: client-side source code
-        - **js**: client-side app source code
-        - **js-tests**: client-side tests source code
-        - **lang**: globalization files
-        - **launcher-templates**: launcher templates
+		1. **plugin.spring.xml.template**: spring bean and dependency injection configuration
+		2. **plugin.xml.template**: client-side static paths, perspective and globalization configuration
+    - **module-scripts**: client-side source code
+        1. **js**: client-side app source code
+        2. **js-tests**: client-side tests source code
+        3. **lang**: globalization files
+        4. **launcher-templates**: launcher templates
     - **src**: server-side source code
     - **test-src**: server-side tests source code
     - **build.xml**: Ant build file
@@ -29,6 +31,8 @@ Assumptions:
 
 2. Technology:
     - **Java 6** for server-side code.
+	- **Spring** for server-side dependency injection.
+	- **JAX-RS** with **JAXB** annotations for REST endpoint implementation and server-side serialization.
     - **JUnit** for server-side code testing.
     - **Karma** and **Jasmine** for client-side tests
     - **RequireJS** for client-side dependency resolution (for both app and tests)
