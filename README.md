@@ -50,13 +50,13 @@ Main Ant targets:
 -----------------
 
 1. **mega-dist**: default target, cleans everything and builds a deployment zip to the "dist" directory.
-..* alias for "ant super-clean super-dist"
+	- alias for "ant super-clean super-dist"
 
 2. **super-clean**: cleans everything
-..* alias for "ant clean-all clean-js"
+	- alias for "ant clean-all clean-js"
 
 3. **super-dist**: builds deployment zip
-..* alias for "ant resolve resolve-js build-js dist"
+	- alias for "ant resolve resolve-js build-js dist"
 
 4. **clean-all**: cleans all artifacts related to server-side code
 
