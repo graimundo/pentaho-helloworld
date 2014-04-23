@@ -1,5 +1,7 @@
 package org.pentaho.helloworld.domain.model.entities.interfaces;
 
+import org.pentaho.helloworld.domain.model.complexTypes.interfaces.IAddress;
+
 public interface IUser {
 
   //region Properties

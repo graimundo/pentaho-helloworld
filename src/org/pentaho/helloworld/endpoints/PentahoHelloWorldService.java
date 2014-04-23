@@ -1,6 +1,7 @@
 package org.pentaho.helloworld.endpoints;
 
 import org.pentaho.helloworld.domain.model.dtos.UserDTO;
+import org.pentaho.helloworld.domain.model.dtos.mappers.interfaces.IUserDTOMapper;
 import org.pentaho.helloworld.domain.model.entities.interfaces.IUser;
 import org.pentaho.helloworld.domain.services.interfaces.IRDO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,13 +15,17 @@ import static javax.ws.rs.core.MediaType.*;
 @Path( "@plugin.java.rest.path.root@" )
 public class PentahoHelloWorldService {
 
+  //region Attributes
   private IRDO RDO;
+  private IUserDTOMapper userDTOMapper;
+  //endregion
 
   @Autowired
-  public PentahoHelloWorldService( IRDO rdo ) {
+  public PentahoHelloWorldService( IRDO rdo, IUserDTOMapper userDTOMapper ) {
 
     //dependency obtained via constructor dependency injection from spring framework
     this.RDO = rdo;
+    this.userDTOMapper = userDTOMapper;
   }
 
   @GET
@@ -39,7 +44,7 @@ public class PentahoHelloWorldService {
     Iterable<IUser> users = this.RDO.getUserService().getUsers();
 
     //transform users to DTOs for serialization
-    return new UserDTO().toDTOs( users );
+    return this.userDTOMapper.toDTOs( users );
   }
 
   @GET
@@ -49,8 +54,6 @@ public class PentahoHelloWorldService {
 
     IUser user = this.RDO.getUserService().getUser( userName );
 
-    UserDTO userDTO = new UserDTO();
-    userDTO.fillDTO( user );
-    return userDTO;
+    return this.userDTOMapper.toDTO( user );
   }
 }

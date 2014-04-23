@@ -1,8 +1,8 @@
-package org.pentaho.helloworld.domain.model.entities.interfaces;
+package org.pentaho.helloworld.domain.model.complexTypes.interfaces;
 
 public interface IAddress {
 
-  //region properties
+  //region Properties
   String getStreetName();
   void setStreetName( String streetName );
 
