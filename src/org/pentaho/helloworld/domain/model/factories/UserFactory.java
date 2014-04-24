@@ -5,11 +5,13 @@ import org.pentaho.helloworld.domain.model.entities.interfaces.IUser;
 import org.pentaho.helloworld.domain.model.entities.User;
 import org.pentaho.helloworld.domain.model.factories.interfaces.IAddressFactory;
 import org.pentaho.helloworld.domain.model.factories.interfaces.IUserFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class UserFactory implements IUserFactory {
 
   private IAddressFactory addressFactory;
 
+  @Autowired
   public UserFactory( IAddressFactory addressFactory ) {
     this.addressFactory = addressFactory;
   }

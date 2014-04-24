@@ -6,7 +6,8 @@ import org.pentaho.helloworld.domain.model.factories.interfaces.IAddressFactory;
 
 public class AddressFactory implements IAddressFactory {
 
-  @Override public IAddress create() {
+  @Override
+  public IAddress create() {
     return new Address();
   }
 }

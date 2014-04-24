@@ -5,6 +5,8 @@ import org.pentaho.helloworld.domain.model.dtos.mappers.interfaces.IAddressDTOMa
 import org.pentaho.helloworld.domain.model.dtos.mappers.interfaces.IUserDTOMapper;
 import org.pentaho.helloworld.domain.model.entities.interfaces.IUser;
 import org.pentaho.helloworld.domain.model.factories.interfaces.IUserFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -16,6 +18,7 @@ public class UserDTOMapper implements IUserDTOMapper {
   //endregion
 
   //region Constructors
+  @Autowired
   public UserDTOMapper( IUserFactory userFactory, IAddressDTOMapper addressDTOMapper ) {
 
     //dependency initialization
