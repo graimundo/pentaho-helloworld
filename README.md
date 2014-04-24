@@ -43,7 +43,7 @@ Assumptions:
     - **Server-Side**: DDD with SoC and DI.
         1. **domain package**: encapsulates everything related to the plugin's domain model.
             - **model**: contains the domain model definitions for this plugin.
-            	- **complexTypes**: complex types used as entity attributes by domain entities. 
+            	- **complexTypes**: complex types used as entity attributes by domain entities. Complex types only exist in the context of one or more domain entities. They cannot exist by themselves, unlike domain entities.
                 - **dtos**: DTOs to transport domain entities outside of domain boundaries (e.g., through REST endpoints). Do not use interfaces for DTOs, as these are not supported by JAXB-based serialization via JAX-RS.
                 	- **mappers**: (Entity - DTO) mappers to map back and forth between domain entities and DTOs.
                 - **entities**: domain entities for this plugin, with respective interfaces.
