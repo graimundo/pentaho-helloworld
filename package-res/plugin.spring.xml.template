@@ -32,11 +32,11 @@
   <!-- END: RDO -->
   
   <!-- START: DTO Mappers -->
-  <bean id="@plugin.id@.address-mapper" class="org.pentaho.helloworld.domain.model.dtos.mappers.AddressDTOMapper">
+  <bean id="@plugin.id@.address-mapper" class="org.pentaho.helloworld.endpoints.dtos.mappers.AddressDTOMapper">
 	<constructor-arg ref="@plugin.id@.address-factory"/>
   </bean>
   
-  <bean id="@plugin.id@.user-mapper" class="org.pentaho.helloworld.domain.model.dtos.mappers.UserDTOMapper">
+  <bean id="@plugin.id@.user-mapper" class="org.pentaho.helloworld.endpoints.dtos.mappers.UserDTOMapper">
 	<constructor-arg ref="@plugin.id@.user-factory"/>
 	<constructor-arg ref="@plugin.id@.address-mapper"/>
   </bean>

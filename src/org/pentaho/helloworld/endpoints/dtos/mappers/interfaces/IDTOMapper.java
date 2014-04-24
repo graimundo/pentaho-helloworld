@@ -1,4 +1,4 @@
-package org.pentaho.helloworld.domain.model.dtos.mappers.interfaces;
+package org.pentaho.helloworld.endpoints.dtos.mappers.interfaces;
 
 public interface IDTOMapper<TDTO, TEntity> {
 

@@ -2,11 +2,11 @@ package org.pentaho.helloworld.tests.domain.dtos;
 
 import junit.framework.Assert;
 import org.junit.Test;
-import org.pentaho.helloworld.domain.model.dtos.UserDTO;
-import org.pentaho.helloworld.domain.model.dtos.mappers.AddressDTOMapper;
-import org.pentaho.helloworld.domain.model.dtos.mappers.UserDTOMapper;
-import org.pentaho.helloworld.domain.model.dtos.mappers.interfaces.IAddressDTOMapper;
-import org.pentaho.helloworld.domain.model.dtos.mappers.interfaces.IUserDTOMapper;
+import org.pentaho.helloworld.endpoints.dtos.UserDTO;
+import org.pentaho.helloworld.endpoints.dtos.mappers.AddressDTOMapper;
+import org.pentaho.helloworld.endpoints.dtos.mappers.UserDTOMapper;
+import org.pentaho.helloworld.endpoints.dtos.mappers.interfaces.IAddressDTOMapper;
+import org.pentaho.helloworld.endpoints.dtos.mappers.interfaces.IUserDTOMapper;
 import org.pentaho.helloworld.domain.model.factories.AddressFactory;
 import org.pentaho.helloworld.domain.model.factories.UserFactory;
 import org.pentaho.helloworld.domain.model.complexTypes.interfaces.IAddress;

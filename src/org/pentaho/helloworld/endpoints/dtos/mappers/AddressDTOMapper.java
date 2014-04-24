@@ -1,8 +1,8 @@
-package org.pentaho.helloworld.domain.model.dtos.mappers;
+package org.pentaho.helloworld.endpoints.dtos.mappers;
 
 import org.pentaho.helloworld.domain.model.complexTypes.interfaces.IAddress;
-import org.pentaho.helloworld.domain.model.dtos.AddressDTO;
-import org.pentaho.helloworld.domain.model.dtos.mappers.interfaces.IAddressDTOMapper;
+import org.pentaho.helloworld.endpoints.dtos.AddressDTO;
+import org.pentaho.helloworld.endpoints.dtos.mappers.interfaces.IAddressDTOMapper;
 import org.pentaho.helloworld.domain.model.factories.interfaces.IAddressFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 

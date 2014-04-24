@@ -1,7 +1,7 @@
 package org.pentaho.helloworld.endpoints;
 
-import org.pentaho.helloworld.domain.model.dtos.UserDTO;
-import org.pentaho.helloworld.domain.model.dtos.mappers.interfaces.IUserDTOMapper;
+import org.pentaho.helloworld.endpoints.dtos.UserDTO;
+import org.pentaho.helloworld.endpoints.dtos.mappers.interfaces.IUserDTOMapper;
 import org.pentaho.helloworld.domain.model.entities.interfaces.IUser;
 import org.pentaho.helloworld.domain.services.interfaces.IRDO;
 import org.springframework.beans.factory.annotation.Autowired;
