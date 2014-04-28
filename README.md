@@ -50,7 +50,9 @@ Assumptions:
 
         2. **endpoints package**: contains transport-dependent source code (e.g., REST endpoints) to expose domain model functionality to the outside world. DTOs sould be used here for communication purposes, instead of concrete domain entities.
 			- **dtos**: DTOs to transport domain entities outside of domain boundaries (e.g., through REST endpoints). Do not use interfaces for DTOs, as these are not supported by JAXB-based serialization via JAX-RS.
-                	- **mappers**: (Entity - DTO) mappers to map back and forth between domain entities and DTOs.
+				- **entities**: DTOs for domain entities
+				- **mappers**: (Entity - DTO) mappers to map back and forth between domain entities and DTOs.
+				- **responses**: endpoint response DTOs (the actual objects that are sent to the client)
   
 
 Main Ant targets:
