@@ -43,7 +43,6 @@ Assumptions:
     - **Server-Side**: DDD with SoC and DI.
         1. **domain package**: encapsulates everything related to the plugin's domain model.
             - **model**: contains the domain model definitions for this plugin.
-            	- **complexTypes**: complex types used as entity attributes by domain entities. Complex types only exist in the context of one or more domain entities. They cannot exist by themselves, unlike domain entities.
                 - **entities**: domain entities for this plugin, with respective interfaces.
                 - **factories**: factories used to control domain entity creation and ensure DI, with respective interfaces.
             - **services**: domain services that perform domain business logic are located here. Entity-specific business logic should be encapsulated in an entity-specific service, whereas cross-cutting business logic that references several domain entities should be encapsulated in the Root Domain Object, or RDO. The RDO is the only entry point to the domain model, and is therefore responsible for handing out entity-specific domain services to other layers that want to use the domain model. Also, use interfaces instead of concrete implementations when accessing the RDO.
@@ -53,6 +52,7 @@ Assumptions:
 				- **entities**: DTOs for domain entities
 				- **mappers**: (Entity - DTO) mappers to map back and forth between domain entities and DTOs.
 				- **responses**: endpoint response DTOs (the actual objects that are sent to the client)
+					- **base**: base classes for endpoint responses (OperationResultDTO and StatusMessageDTO)
   
 
 Main Ant targets:
