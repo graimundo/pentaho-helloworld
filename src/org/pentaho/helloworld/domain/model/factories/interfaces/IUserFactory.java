@@ -1,6 +1,6 @@
 package org.pentaho.helloworld.domain.model.factories.interfaces;
 
-import org.pentaho.helloworld.domain.model.complexTypes.interfaces.IAddress;
+import org.pentaho.helloworld.domain.model.entities.interfaces.IAddress;
 import org.pentaho.helloworld.domain.model.entities.interfaces.IUser;
 
 public interface IUserFactory {

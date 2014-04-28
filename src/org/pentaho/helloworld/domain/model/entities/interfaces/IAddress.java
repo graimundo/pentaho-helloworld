@@ -1,4 +1,4 @@
-package org.pentaho.helloworld.domain.model.complexTypes.interfaces;
+package org.pentaho.helloworld.domain.model.entities.interfaces;
 
 public interface IAddress {
 

@@ -9,7 +9,7 @@ import org.pentaho.helloworld.endpoints.dtos.mappers.interfaces.IAddressDTOMappe
 import org.pentaho.helloworld.endpoints.dtos.mappers.interfaces.IUserDTOMapper;
 import org.pentaho.helloworld.domain.model.factories.AddressFactory;
 import org.pentaho.helloworld.domain.model.factories.UserFactory;
-import org.pentaho.helloworld.domain.model.complexTypes.interfaces.IAddress;
+import org.pentaho.helloworld.domain.model.entities.interfaces.IAddress;
 import org.pentaho.helloworld.domain.model.entities.interfaces.IUser;
 import org.pentaho.helloworld.domain.model.factories.interfaces.IAddressFactory;
 import org.pentaho.helloworld.domain.model.factories.interfaces.IUserFactory;

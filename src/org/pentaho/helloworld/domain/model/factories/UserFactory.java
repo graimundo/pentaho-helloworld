@@ -1,6 +1,6 @@
 package org.pentaho.helloworld.domain.model.factories;
 
-import org.pentaho.helloworld.domain.model.complexTypes.interfaces.IAddress;
+import org.pentaho.helloworld.domain.model.entities.interfaces.IAddress;
 import org.pentaho.helloworld.domain.model.entities.interfaces.IUser;
 import org.pentaho.helloworld.domain.model.entities.User;
 import org.pentaho.helloworld.domain.model.factories.interfaces.IAddressFactory;
