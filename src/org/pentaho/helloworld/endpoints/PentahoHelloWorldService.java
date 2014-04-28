@@ -1,8 +1,8 @@
 package org.pentaho.helloworld.endpoints;
 
-import org.pentaho.helloworld.endpoints.dtos.StringOperationResultDTO;
-import org.pentaho.helloworld.endpoints.dtos.UserDTOListOperationResultDTO;
-import org.pentaho.helloworld.endpoints.dtos.UserDTOOperationResultDTO;
+import org.pentaho.helloworld.endpoints.dtos.responses.StringOperationResultDTO;
+import org.pentaho.helloworld.endpoints.dtos.responses.UserDTOListOperationResultDTO;
+import org.pentaho.helloworld.endpoints.dtos.responses.UserDTOOperationResultDTO;
 import org.pentaho.helloworld.endpoints.dtos.mappers.interfaces.IUserDTOMapper;
 import org.pentaho.helloworld.domain.model.entities.interfaces.IUser;
 import org.pentaho.helloworld.domain.services.interfaces.IRDO;
@@ -37,8 +37,8 @@ public class PentahoHelloWorldService {
     //create result DTO
     StringOperationResultDTO result = new StringOperationResultDTO();
 
-    //fill element
-    result.element = "Hello World from Pentaho Service!";
+    //fill string
+    result.string = "Hello World from Pentaho Service!";
 
     //fill status message
     result.statusMessage.code = "OK_CODE";
@@ -59,8 +59,8 @@ public class PentahoHelloWorldService {
     //transform users to DTOs for serialization
     UserDTOListOperationResultDTO result = new UserDTOListOperationResultDTO();
 
-    //fill elements
-    result.elements = this.userDTOMapper.toDTOs( users );
+    //fill users
+    result.users = this.userDTOMapper.toDTOs( users );
 
     //fill status message
     result.statusMessage.code = "OK_CODE";
@@ -81,8 +81,8 @@ public class PentahoHelloWorldService {
     //transform users to DTOs for serialization
     UserDTOOperationResultDTO result = new UserDTOOperationResultDTO();
 
-    //fill element
-    result.element = this.userDTOMapper.toDTO( user );
+    //fill string
+    result.user = this.userDTOMapper.toDTO( user );
 
     //fill status message
     result.statusMessage.code = "OK_CODE";

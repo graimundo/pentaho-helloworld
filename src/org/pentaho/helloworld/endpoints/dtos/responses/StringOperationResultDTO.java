@@ -1,11 +1,12 @@
-package org.pentaho.helloworld.endpoints.dtos;
+package org.pentaho.helloworld.endpoints.dtos.responses;
 
+import org.pentaho.helloworld.endpoints.dtos.responses.base.OperationResultDTO;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 public class StringOperationResultDTO extends OperationResultDTO {
 
   //region Attributes
-  public String element;
+  public String string;
   //endregion
 }
