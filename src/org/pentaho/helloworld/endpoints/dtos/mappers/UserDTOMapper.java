@@ -1,14 +1,14 @@
 package org.pentaho.helloworld.endpoints.dtos.mappers;
 
-import org.pentaho.helloworld.endpoints.dtos.UserDTO;
+import org.pentaho.helloworld.endpoints.dtos.entities.UserDTO;
 import org.pentaho.helloworld.endpoints.dtos.mappers.interfaces.IAddressDTOMapper;
 import org.pentaho.helloworld.endpoints.dtos.mappers.interfaces.IUserDTOMapper;
 import org.pentaho.helloworld.domain.model.entities.interfaces.IUser;
 import org.pentaho.helloworld.domain.model.factories.interfaces.IUserFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 public class UserDTOMapper implements IUserDTOMapper {
 
@@ -49,7 +49,7 @@ public class UserDTOMapper implements IUserDTOMapper {
   }
 
   @Override
-  public Iterable<IUser> toEntities( Iterable<UserDTO> userDTOs ) {
+  public Iterable<IUser> toEntities( List<UserDTO> userDTOs ) {
 
     Collection<IUser> users = new ArrayList<IUser>();
 
@@ -62,9 +62,9 @@ public class UserDTOMapper implements IUserDTOMapper {
   }
 
   @Override
-  public Iterable<UserDTO> toDTOs( Iterable<IUser> users ) {
+  public List<UserDTO> toDTOs( Iterable<IUser> users ) {
 
-    Collection<UserDTO> userDTOs = new ArrayList<UserDTO>();
+    List<UserDTO> userDTOs = new ArrayList<UserDTO>();
 
     for ( IUser user : users ) {
       userDTOs.add( this.toDTO( user ) );

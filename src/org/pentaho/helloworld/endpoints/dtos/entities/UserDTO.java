@@ -1,4 +1,4 @@
-package org.pentaho.helloworld.endpoints.dtos;
+package org.pentaho.helloworld.endpoints.dtos.entities;
 
 import javax.xml.bind.annotation.XmlRootElement;
 

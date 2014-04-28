@@ -3,10 +3,10 @@ package org.pentaho.helloworld.endpoints.dtos;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
-public class AddressDTO {
+public class StatusMessageDTO {
 
   //region Attributes
-  public String streetName;
-  public String postalCode;
+  public String code;
+  public String message;
   //endregion
 }

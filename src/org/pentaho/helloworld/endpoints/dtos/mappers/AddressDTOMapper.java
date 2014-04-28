@@ -1,13 +1,13 @@
 package org.pentaho.helloworld.endpoints.dtos.mappers;
 
 import org.pentaho.helloworld.domain.model.complexTypes.interfaces.IAddress;
-import org.pentaho.helloworld.endpoints.dtos.AddressDTO;
+import org.pentaho.helloworld.endpoints.dtos.entities.AddressDTO;
 import org.pentaho.helloworld.endpoints.dtos.mappers.interfaces.IAddressDTOMapper;
 import org.pentaho.helloworld.domain.model.factories.interfaces.IAddressFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 public class AddressDTOMapper implements IAddressDTOMapper {
 
@@ -54,7 +54,7 @@ public class AddressDTOMapper implements IAddressDTOMapper {
   }
 
   @Override
-  public Iterable<IAddress> toEntities( Iterable<AddressDTO> dtos ) {
+  public Iterable<IAddress> toEntities( List<AddressDTO> dtos ) {
 
     Collection<IAddress> addresses = new ArrayList<IAddress>();
 
@@ -66,9 +66,9 @@ public class AddressDTOMapper implements IAddressDTOMapper {
   }
 
   @Override
-  public Iterable<AddressDTO> toDTOs( Iterable<IAddress> addresses ) {
+  public List<AddressDTO> toDTOs( Iterable<IAddress> addresses ) {
 
-    Collection<AddressDTO> dtos = new ArrayList<AddressDTO>();
+    List<AddressDTO> dtos = new ArrayList<AddressDTO>();
 
     for ( IAddress address : addresses ) {
       dtos.add( this.toDTO( address ) );

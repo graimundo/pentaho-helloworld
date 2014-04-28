@@ -1,6 +1,8 @@
 package org.pentaho.helloworld.endpoints;
 
-import org.pentaho.helloworld.endpoints.dtos.UserDTO;
+import org.pentaho.helloworld.endpoints.dtos.StringOperationResultDTO;
+import org.pentaho.helloworld.endpoints.dtos.UserDTOListOperationResultDTO;
+import org.pentaho.helloworld.endpoints.dtos.UserDTOOperationResultDTO;
 import org.pentaho.helloworld.endpoints.dtos.mappers.interfaces.IUserDTOMapper;
 import org.pentaho.helloworld.domain.model.entities.interfaces.IUser;
 import org.pentaho.helloworld.domain.services.interfaces.IRDO;
@@ -9,8 +11,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-
-import static javax.ws.rs.core.MediaType.*;
+import javax.ws.rs.core.MediaType;
 
 @Path( "@plugin.java.rest.path.root@" )
 public class PentahoHelloWorldService {
@@ -30,30 +31,64 @@ public class PentahoHelloWorldService {
 
   @GET
   @Path( "/hello" )
-  @Produces( TEXT_PLAIN )
-  public String hello() {
-    return "Hello World from Pentaho Service!";
+  @Produces( MediaType.APPLICATION_JSON )
+  public StringOperationResultDTO hello() {
+
+    //create result DTO
+    StringOperationResultDTO result = new StringOperationResultDTO();
+
+    //fill element
+    result.element = "Hello World from Pentaho Service!";
+
+    //fill status message
+    result.statusMessage.code = "OK_CODE";
+    result.statusMessage.message = "OK_MESSAGE";
+
+    //return result DTO
+    return result;
   }
 
   @GET
   @Path( "/users" )
-  @Produces( { APPLICATION_JSON, APPLICATION_XML } )
-  public Iterable<UserDTO> getUsers() {
+  @Produces( MediaType.APPLICATION_JSON )
+  public UserDTOListOperationResultDTO getUsers() {
 
     //get users from the domain model
     Iterable<IUser> users = this.RDO.getUserService().getUsers();
 
     //transform users to DTOs for serialization
-    return this.userDTOMapper.toDTOs( users );
+    UserDTOListOperationResultDTO result = new UserDTOListOperationResultDTO();
+
+    //fill elements
+    result.elements = this.userDTOMapper.toDTOs( users );
+
+    //fill status message
+    result.statusMessage.code = "OK_CODE";
+    result.statusMessage.message = "OK_MESSAGE";
+
+    //return result DTO
+    return result;
   }
 
   @GET
   @Path( "/user/{userName}" )
-  @Produces( { APPLICATION_JSON, APPLICATION_XML } )
-  public UserDTO getUser( @PathParam( "userName" ) String userName ) {
+  @Produces( MediaType.APPLICATION_JSON )
+  public UserDTOOperationResultDTO getUser( @PathParam( "userName" ) String userName ) {
 
+    //get user from the domain model
     IUser user = this.RDO.getUserService().getUser( userName );
 
-    return this.userDTOMapper.toDTO( user );
+    //transform users to DTOs for serialization
+    UserDTOOperationResultDTO result = new UserDTOOperationResultDTO();
+
+    //fill element
+    result.element = this.userDTOMapper.toDTO( user );
+
+    //fill status message
+    result.statusMessage.code = "OK_CODE";
+    result.statusMessage.message = "OK_MESSAGE";
+
+    //return result DTO
+    return result;
   }
 }

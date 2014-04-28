@@ -2,7 +2,7 @@ package org.pentaho.helloworld.tests.domain.dtos;
 
 import junit.framework.Assert;
 import org.junit.Test;
-import org.pentaho.helloworld.endpoints.dtos.UserDTO;
+import org.pentaho.helloworld.endpoints.dtos.entities.UserDTO;
 import org.pentaho.helloworld.endpoints.dtos.mappers.AddressDTOMapper;
 import org.pentaho.helloworld.endpoints.dtos.mappers.UserDTOMapper;
 import org.pentaho.helloworld.endpoints.dtos.mappers.interfaces.IAddressDTOMapper;
